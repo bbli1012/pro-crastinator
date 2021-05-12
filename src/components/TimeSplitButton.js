@@ -1,25 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default class TimeSplitButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
+function TimeSplitButton() {
+  const [date, setDate] = useState(false);
 
-
-  handleClick(event) {
+  /** legacy for class components
+  handleClick() {
     //push date to server
     let date = new Date();
   }
+  */
 
-  render() {
-    return (
-      <div>
-      <label>Time Split </label>
-      <button onClick={this.handleClick}>Time Split</button>
-      </div>
-    )
-  }
+  return (
+    <div>
+    <label>Time Split </label>
+    <label> Current split is {(date) ? date : "not set"} </label>
+    <button onClick={() => setDate(new Date())}>Time Split</button>
+    </div>
+  )
 }
