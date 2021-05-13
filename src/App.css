@@ -1,38 +1,65 @@
-.App {
+/* for desktop first layout */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family:'Courier New', Courier, monospace;
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+  display: flex;
+  flex-flow: row wrap;
+  border: solid red 1px;
+}
+
+h1 {
+  flex: 1 1 100%;
+  border: solid black 1px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+ul {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.row {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.split-button {
+  flex: 1 50%;
+  border: solid blue 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.time-elapsed-display {
+  flex: 1 50%;
+  border: solid teal 1px;
+}
+
+.splits-column {
+  flex: 1 50%;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  border: solid yellow 1px;
+}
+
+.graph-column {
+  flex: 1 50%;
+  border: solid pink 1px;
+}
+
+/* for tablet*/
+@media only screen and (max-width: 850px ) {
+
+}
+
+/* for mobile or small devices */
+@media only screen and (max-width: 550px) {
+
 }
