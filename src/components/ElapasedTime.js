@@ -20,8 +20,8 @@ export default function ElaspsedTime({date}) {
 
   function getTimeDiff() {
     let split = date[date.length - 1];
-    let timeDiff = new Date(now.getTime() - split.getTime());
-    return timeDiff;
+    let timeDiff = new Date(Math.abs(now.getTime() - split.getTime()));
+    return timeDiff.getTime();
     // return timeDiff.getHours()  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
   }
 
