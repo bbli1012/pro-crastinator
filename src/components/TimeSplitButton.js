@@ -10,6 +10,8 @@ function TimeSplitButton() {
   }
   */
 
+  // note onclick may need to be passed from parent to update parent state
+
   return (
     <div>
     <label>Time Split </label>
