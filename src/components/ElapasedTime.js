@@ -18,10 +18,17 @@ export default function ElaspsedTime({date}) {
   setNow(new Date());
   }
 
+  function getTimeDiff() {
+    let split = date[date.length - 1];
+    let timeDiff = new Date(now.getTime() - split.getTime());
+    return timeDiff;
+    // return timeDiff.getHours()  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
+  }
+
   return (
     <div>
       <h1>{date.length ? 'Time since last split' : 'Current Time is'}</h1>
-      <h1>{now}</h1>
+      <h2>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h2>
     </div>
   );
 }
