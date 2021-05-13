@@ -1,6 +1,14 @@
 import './App.css';
 
 const App = () => {
+  const [dates, setDate] = useState([]);
+
+  function handleTime() {
+    let newDate = new Date();
+    setDate([...dates, newDate]);
+    console.log(dates);
+  }
+
   return (
     <div className="App">
       {/* TODO: replace with header/ nav component */}
@@ -17,8 +25,10 @@ const App = () => {
       <div className="row">
         {/* TODO: replace with button component */}
         <div className="split-button">Split</div>
+          <TimeSplitButton date={dates} action={handleTime} />
         {/* TODO: replace with time display component */}
         <div className="time-elapsed-display">Time</div>
+          <ElapsedTime date={dates}/>
       </div>
       <div className="row">
         {/* TODO: replace with splits component */}
