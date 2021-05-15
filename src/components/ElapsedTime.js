@@ -21,8 +21,8 @@ export default function ElaspsedTime({date}) {
   function getTimeDiff() {
     let split = date[date.length - 1];
     let timeDiff = new Date(Math.abs(now.getTime() - split.getTime()));
-    return timeDiff.getTime();
-    // return timeDiff.getHours()  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
+    // return timeDiff.getTime();
+    return Math.floor(timeDiff/36000000)  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
   }
 
   return (
