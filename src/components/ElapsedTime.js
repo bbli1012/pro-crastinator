@@ -26,8 +26,8 @@ export default function ElaspsedTime({date}) {
   }
 
   return (
-    <div>
-      <h1>{date.length ? 'Time since last split' : 'Current Time is'}</h1>
+    <div className="time-elapsed-display" >
+      <h2>{date.length ? 'Time since last split' : 'Current Time is'}</h2>
       <h2>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h2>
     </div>
   );

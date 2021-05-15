@@ -7,6 +7,12 @@ html {
   box-sizing: inherit;
 }
 
+.app {
+  margin: auto;
+  width: 70%;
+  height: 70%;
+}
+
 body {
   font-family:'Courier New', Courier, monospace;
   margin: 0px;
@@ -32,13 +38,15 @@ ul {
   display: flex;
 }
 
-.split-button {
+.split-box {
   flex: 1 50%;
+  margin: auto;
   border: solid blue 1px;
 }
 
 .time-elapsed-display {
   flex: 1 50%;
+  margin: auto;
   border: solid teal 1px;
 }
 

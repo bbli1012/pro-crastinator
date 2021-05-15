@@ -14,7 +14,7 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       {/* TODO: replace with header/ nav component */}
       <header className="header">
         <nav className="nav">
@@ -28,11 +28,9 @@ const App = () => {
       </header>
       <div className="row">
         {/* TODO: replace with button component */}
-        <div className="split-button">Split</div>
-          <TimeSplitButton date={dates} action={handleTime} />
+        <TimeSplitButton date={dates} action={handleTime} />
         {/* TODO: replace with time display component */}
-        <div className="time-elapsed-display">Time</div>
-          <ElapsedTime date={dates}/>
+        <ElapsedTime date={dates}/>
       </div>
       <div className="row">
         {/* TODO: replace with splits component */}
