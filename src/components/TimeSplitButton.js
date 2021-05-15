@@ -12,9 +12,9 @@ export default function TimeSplitButton({date, action}) {
   */
 
   return (
-    <div>
-    <label> Current split is {(date.length) ? date[date.length - 1].toString() : 'not set'} </label>
-    <button onClick={action}>Time Split</button>
+    <div className="split-button">
+      <label> Current split is {(date.length) ? date[date.length - 1].toString() : 'not set'} </label>
+      <button onClick={action}>Time Split</button>
     </div>
   )
 }

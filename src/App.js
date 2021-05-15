@@ -1,11 +1,22 @@
 import './App.css';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TimeSplitButton from './components/TimeSplitButton.js';
 import ElapsedTime from './components/ElapsedTime.js';
+import SplitsDisplay from './components/SplitsDisplay.js';
+
+// TODO: remove after database implementation
+import createMockSplits from './mock-data.js';
 
 const App = () => {
   const [dates, setDate] = useState([]);
+  const [splits, setSplits] = useState([]);
+
+  useEffect(()=>{
+    // TODO: change to database get request later
+    let splitData = createMockSplits(30);
+    setSplits(splitData);
+  }, []);
 
   function handleTime() {
     let newDate = new Date();
@@ -27,20 +38,11 @@ const App = () => {
         <h1>Pro-crastinator</h1>
       </header>
       <div className="row">
-        {/* TODO: replace with button component */}
-        <div className="split-button">Split</div>
-          <TimeSplitButton date={dates} action={handleTime} />
-        {/* TODO: replace with time display component */}
-        <div className="time-elapsed-display">Time</div>
-          <ElapsedTime date={dates}/>
+        <TimeSplitButton date={dates} action={handleTime} />
+        <ElapsedTime date={dates}/>
       </div>
       <div className="row">
-        {/* TODO: replace with splits component */}
-        <div className="splits-column">
-          <div>split1</div>
-          <div>split2</div>
-          <div>split3</div>
-        </div>
+        <SplitsDisplay splits={splits}/>
         {/* TODO: replace with average graph talk about what to use eg D3? */}
         <div className="graph-column">Graph goes here</div>
       </div>
