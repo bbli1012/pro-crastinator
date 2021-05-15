@@ -15,7 +15,9 @@ export function sunburstDataParser (splits) {
     let labelName = splits[i].label;
     if (labels[labelName] == undefined) {
       labels[labelName] = splits[i].stop - splits[i].start;
-      categories[splits[i].category] = {};
+      if (categories[splits[i].category] == undefined) {
+        categories[splits[i].category] = {}
+      };
       categories[splits[i].category][labelName] = true;
     } else {
       labels[labelName] += splits[i].stop - splits[i].start;
