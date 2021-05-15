@@ -11,6 +11,8 @@ html {
   margin: auto;
   width: 70%;
   height: 70%;
+  padding-top:10%;
+  padding-bottom:20%;
 }
 
 body {
