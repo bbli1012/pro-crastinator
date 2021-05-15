@@ -1,16 +1,6 @@
 import React from 'react';
 
 export default function TimeSplitButton({date, action}) {
-  //for use with parent
-  /**
-  const [dates, setDate] = useState([]);
-
-  function handleTime() {
-    let newDate = new Date();
-    setDate([...dates, newDate]);
-  }
-  */
-
   return (
     <div className="split-box">
       <div>
