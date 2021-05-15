@@ -15,7 +15,7 @@ export default function ElaspsedTime({date}) {
   });
 
   function tick() {
-  setNow(new Date());
+    setNow(new Date());
   }
 
   function getTimeDiff() {
@@ -26,9 +26,9 @@ export default function ElaspsedTime({date}) {
   }
 
   return (
-    <div className="time-elapsed-display" >
+    <div className="time-elapsed-display">
       <h2>{date.length ? 'Time since last split' : 'Current Time is'}</h2>
-      <h2>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h2>
+      <h3>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h3>
     </div>
   );
 }
