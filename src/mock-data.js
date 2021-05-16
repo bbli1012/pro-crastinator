@@ -18,7 +18,7 @@ const createMockSplits = (numOfSplits) => {
     split.category = categories[getRandomNumberInt(0, categories.length - 1)];
 
     if(split.category === "uncategorized") {
-      split.label = 'undefined';
+      split.label = 'not defined';
     } else {
       let labels = categoryLabels[split.category];
       split.label = labels[getRandomNumberInt(0, labels.length - 1)];
@@ -60,7 +60,7 @@ const mockSplits =
     start: 1621113067187,
     stop: 1621331233187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1621331233187,
@@ -114,19 +114,19 @@ const mockSplits =
     start: 1622356666187,
     stop: 1622429502187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1622429502187,
     stop: 1622648134187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1622648134187,
     stop: 1622866227187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1622866227187,
@@ -162,7 +162,7 @@ const mockSplits =
     start: 1623343608187,
     stop: 1623526542187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1623526542187,
@@ -186,7 +186,7 @@ const mockSplits =
     start: 1623928977187,
     stop: 1624148155187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1624148155187,
@@ -204,7 +204,7 @@ const mockSplits =
     start: 1624404452187,
     stop: 1624623569187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1624623569187,
@@ -240,13 +240,13 @@ const mockSplits =
     start: 1624960079187,
     stop: 1625035714187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1625035714187,
     stop: 1625110142187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1625110142187,
@@ -294,7 +294,7 @@ const mockSplits =
     start: 1625843732187,
     stop: 1625916605187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1625916605187,
@@ -312,7 +312,7 @@ const mockSplits =
     start: 1626245609187,
     stop: 1626390955187,
     category: 'uncategorized',
-    label: 'undefined'
+    label: 'not defined'
   },
   {
     start: 1626390955187,
