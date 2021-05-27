@@ -19,16 +19,17 @@ export default function ElaspsedTime({date}) {
   }
 
   function getTimeDiff() {
-    let split = date[date.length - 1];
-    let timeDiff = new Date(Math.abs(now.getTime() - split.getTime()));
+    // let split = date[date.length - 1];
+    // let timeDiff = new Date(Math.abs(now.getTime() - split.getTime()));
+    let timeDiff = new Date(Math.abs(now.getTime() - date.start));
     // return timeDiff.getTime();
     return Math.floor(timeDiff/36000000)  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
   }
 
   return (
     <div className="time-elapsed-display">
-      <h2>{date.length ? 'Time since last split' : 'Current Time is'}</h2>
-      <h3>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h3>
+      <h2>{date ? 'Time since last split' : 'Current Time is'}</h2>
+      <h3>{date ? getTimeDiff() : now.toLocaleTimeString()}.</h3>
     </div>
   );
 }

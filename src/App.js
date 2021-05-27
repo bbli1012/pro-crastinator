@@ -9,7 +9,7 @@ import SplitsDisplay from './components/SplitsDisplay.js';
 import mockSplits from './mock-data.js';
 
 const App = () => {
-  const [dates, setDate] = useState([]);
+  const [date, setDate] = useState(false);
   const [splits, setSplits] = useState([]);
 
   useEffect(()=>{
@@ -18,10 +18,23 @@ const App = () => {
   }, []);
 
   function handleTime() {
-    let newDate = new Date();
-    setDate([...dates, newDate]);
-    console.log(dates);
-  }
+    let genDate = new Date();
+
+    if (date) {
+      let newSplit = {...date};
+      newSplit.stop = genDate.getTime();
+      setSplits([...splits, newSplit])
+    };
+
+    let newDate = {
+      start: genDate.getTime(),
+      stop: undefined,
+      category: 'uncategorized',
+      label: 'not defined'
+    };
+
+    setDate(newDate);
+  };
 
   return (
     <div className="app">
@@ -38,9 +51,9 @@ const App = () => {
       </header>
       <div className="row">
         {/* TODO: replace with button component */}
-        <TimeSplitButton date={dates} action={handleTime} />
+        <TimeSplitButton date={date} action={handleTime} />
         {/* TODO: replace with time display component */}
-        <ElapsedTime date={dates}/>
+        <ElapsedTime date={date}/>
       </div>
       <div className="row">
         <SplitsDisplay splits={splits}/>
