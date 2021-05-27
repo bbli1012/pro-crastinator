@@ -6,7 +6,7 @@ import ElapsedTime from './components/ElapsedTime.js';
 import SplitsDisplay from './components/SplitsDisplay.js';
 
 // TODO: remove after database implementation
-import mockSplits from './mock-data.js';
+import { mockSplits, categoryLabels } from './mock-data.js';
 
 const App = () => {
   const [dates, setDate] = useState([]);
@@ -14,6 +14,7 @@ const App = () => {
 
   useEffect(()=>{
     // TODO: change to database get request later
+    console.log('work')
     setSplits(mockSplits);
   }, []);
 

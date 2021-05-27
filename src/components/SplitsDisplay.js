@@ -2,6 +2,9 @@ import React from 'react';
 
 const SplitsDisplay = ({splits}) =>{
 
+  const onClick = (e) => {
+  }
+
   return (
     <div className="splits-column">
       {splits.map((split, idx) => {
@@ -10,9 +13,12 @@ const SplitsDisplay = ({splits}) =>{
             <div>
               {split.start}
             </div>
-            <div className={split.category}>
-              {split.label}
-            </div>
+            {/* {split.label === 'not defined'
+            ? <data
+            : <div className={split.category}>
+                {split.label}
+              </div>
+            } */}
           </div>
         )
       })}

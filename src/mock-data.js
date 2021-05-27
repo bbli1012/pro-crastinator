@@ -353,4 +353,4 @@ const mockSplits =
 ];
 
 
-export default mockSplits;
+export  { mockSplits, categoryLabels };
