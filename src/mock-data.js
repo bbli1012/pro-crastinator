@@ -47,6 +47,8 @@ const categoryLabels = {
   entertainment: [ "movie", "tv", "gaming" ],
   uncategorized: [],
 };
+const mockLabels = ["bar", "dinner", "lunch", "reading", "hiking", "biking", "basketball", "movie", "tv", "gaming"]
+
 
 const mockSplits =
 [
@@ -353,4 +355,4 @@ const mockSplits =
 ];
 
 
-export  { mockSplits, categoryLabels };
+export  { mockSplits, mockLabels };

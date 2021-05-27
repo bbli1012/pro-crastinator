@@ -1,8 +1,11 @@
 import React from 'react';
 
-const SplitsDisplay = ({splits}) =>{
+const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
 
-  const onClick = (e) => {
+  const onChange = (e) => {
+    let splitIdx = e.target.className;
+    let newLabel = e.target.value;
+    //need to create deep copy of splits
   }
 
   return (
@@ -13,12 +16,17 @@ const SplitsDisplay = ({splits}) =>{
             <div>
               {split.start}
             </div>
-            {/* {split.label === 'not defined'
-            ? <data
-            : <div className={split.category}>
-                {split.label}
-              </div>
-            } */}
+            {split.label === 'not defined'
+              ? <>
+                  <input list="labels" placeholder={split.label} onChange={onChange} className={idx}/>
+                  <datalist id="labels">
+                    { mockLabels.map((label, idx) => <option value={label} key={idx} />) }
+                  </datalist>
+                </>
+              : <div className={ split.category }>
+                  { split.label }
+                </div>
+            }
           </div>
         )
       })}

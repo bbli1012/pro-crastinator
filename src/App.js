@@ -6,7 +6,7 @@ import ElapsedTime from './components/ElapsedTime.js';
 import SplitsDisplay from './components/SplitsDisplay.js';
 
 // TODO: remove after database implementation
-import { mockSplits, categoryLabels } from './mock-data.js';
+import { mockSplits, mockLabels } from './mock-data.js';
 
 const App = () => {
   const [dates, setDate] = useState([]);
@@ -14,7 +14,6 @@ const App = () => {
 
   useEffect(()=>{
     // TODO: change to database get request later
-    console.log('work')
     setSplits(mockSplits);
   }, []);
 
@@ -44,7 +43,7 @@ const App = () => {
         <ElapsedTime date={dates}/>
       </div>
       <div className="row">
-        <SplitsDisplay splits={splits}/>
+        <SplitsDisplay splits={splits} mockLabels={mockLabels} setSplits={setSplits}/>
         {/* TODO: replace with average graph talk about what to use eg D3? */}
         <div className="graph-column">Graph goes here</div>
       </div>
