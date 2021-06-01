@@ -1,4 +1,5 @@
-/* for desktop first layout */
+
+/* for desktop first layout
 html {
   box-sizing: border-box;
 }
@@ -65,11 +66,11 @@ ul {
 }
 
 /* for tablet*/
-@media only screen and (max-width: 850px ) {
+/* @media only screen and (max-width: 850px ) {
 
-}
+} */
 
 /* for mobile or small devices */
-@media only screen and (max-width: 550px) {
+/* @media only screen and (max-width: 550px) {
 
-}
+} */
