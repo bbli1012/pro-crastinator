@@ -1,4 +1,4 @@
-export function sunburstDataParser (splits) {
+export default function sunburstDataParser (splits) {
   /**
    * {name: category
    * children: [
@@ -6,16 +6,85 @@ export function sunburstDataParser (splits) {
    * ]]
    * }}
    */
+
   let data = []
   let labels = {};
   let categories = {};
 
+  let dummy = [{
+          "name": "social",
+          "children": [
+              {
+                  "name": "bar",
+                  "value": 481578000
+              },
+              {
+                  "name": "lunch",
+                  "value": 839409000
+              },
+              {
+                  "name": "dinner",
+                  "value": 440216000
+              }
+          ]
+      },
+      {
+          "name": "uncategorized",
+          "children": [
+              {
+                  "name": "not defined",
+                  "value": 1717238000
+              }
+          ]
+      },
+      {
+          "name": "entertainment",
+          "children": [
+              {
+                  "name": "gaming",
+                  "value": 627863000
+              },
+              {
+                  "name": "movie",
+                  "value": 550467000
+              },
+              {
+                  "name": "tv",
+                  "value": 438854000
+              }
+          ]
+      },
+      {
+          "name": "productivity",
+          "children": [
+              {
+                  "name": "biking",
+                  "value": 332088000
+              },
+              {
+                  "name": "reading",
+                  "value": 298379000
+              },
+              {
+                  "name": "basketball",
+                  "value": 216024000
+              }
+          ]
+      }
+  ];
+
+  console.log(splits)
+
+  if(!splits.length) {
+    return dummy
+  };
+
   //loop through data
   for (let i = 0; i < splits.length; i++) {
     let labelName = splits[i].label;
-    if (labels[labelName] == undefined) {
+    if (labels[labelName] === undefined) {
       labels[labelName] = splits[i].stop - splits[i].start;
-      if (categories[splits[i].category] == undefined) {
+      if (categories[splits[i].category] === undefined) {
         categories[splits[i].category] = {}
       };
       categories[splits[i].category][labelName] = true;
@@ -29,7 +98,7 @@ export function sunburstDataParser (splits) {
       name: key,
       children: []
     }
-    for (label in categories[key]) {
+    for (let label in categories[key]) {
       obj.children.push({name: label, value: labels[label]});
     }
     data.push(obj);

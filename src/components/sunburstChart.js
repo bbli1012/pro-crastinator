@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import sunburstDataParser from '../utility/sunburstDataParser.js';
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -7,75 +8,76 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4plugins_sunburst from "@amcharts/amcharts4/plugins/sunburst"; 
 am4core.useTheme(am4themes_animated);
 
-export default function SunburstChart() {
+export default function SunburstChart({splits}) {
     useEffect(()=>{
         // create chart
         var chart = am4core.create("chartdiv", am4plugins_sunburst.Sunburst);
         chart.padding(0, 0, 0, 0);
         chart.radius = am4core.percent(98);
     
-        chart.data =[
-            {
-                "name": "social",
-                "children": [
-                    {
-                        "name": "bar",
-                        "value": 481578000
-                    },
-                    {
-                        "name": "lunch",
-                        "value": 839409000
-                    },
-                    {
-                        "name": "dinner",
-                        "value": 440216000
-                    }
-                ]
-            },
-            {
-                "name": "uncategorized",
-                "children": [
-                    {
-                        "name": "not defined",
-                        "value": 1717238000
-                    }
-                ]
-            },
-            {
-                "name": "entertainment",
-                "children": [
-                    {
-                        "name": "gaming",
-                        "value": 627863000
-                    },
-                    {
-                        "name": "movie",
-                        "value": 550467000
-                    },
-                    {
-                        "name": "tv",
-                        "value": 438854000
-                    }
-                ]
-            },
-            {
-                "name": "productivity",
-                "children": [
-                    {
-                        "name": "biking",
-                        "value": 332088000
-                    },
-                    {
-                        "name": "reading",
-                        "value": 298379000
-                    },
-                    {
-                        "name": "basketball",
-                        "value": 216024000
-                    }
-                ]
-            }
-        ];
+        chart.data = sunburstDataParser(splits);
+        // chart.data =[
+        //     {
+        //         "name": "social",
+        //         "children": [
+        //             {
+        //                 "name": "bar",
+        //                 "value": 481578000
+        //             },
+        //             {
+        //                 "name": "lunch",
+        //                 "value": 839409000
+        //             },
+        //             {
+        //                 "name": "dinner",
+        //                 "value": 440216000
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         "name": "uncategorized",
+        //         "children": [
+        //             {
+        //                 "name": "not defined",
+        //                 "value": 1717238000
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         "name": "entertainment",
+        //         "children": [
+        //             {
+        //                 "name": "gaming",
+        //                 "value": 627863000
+        //             },
+        //             {
+        //                 "name": "movie",
+        //                 "value": 550467000
+        //             },
+        //             {
+        //                 "name": "tv",
+        //                 "value": 438854000
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         "name": "productivity",
+        //         "children": [
+        //             {
+        //                 "name": "biking",
+        //                 "value": 332088000
+        //             },
+        //             {
+        //                 "name": "reading",
+        //                 "value": 298379000
+        //             },
+        //             {
+        //                 "name": "basketball",
+        //                 "value": 216024000
+        //             }
+        //         ]
+        //     }
+        // ];
     
         chart.colors.step = 2;
         chart.fontSize = 12;

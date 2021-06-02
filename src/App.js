@@ -60,7 +60,7 @@ const App = () => {
           {/* TODO: replace with average graph talk about what to use eg D3? */}
           {/* <div className="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5">Graph goes here</div> */}
           {/* <div id='chartdiv' class="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5"></div> */}
-          <SunburstChart />
+          <SunburstChart splits={splits}/>
         </div>
       </div>
     </div>
