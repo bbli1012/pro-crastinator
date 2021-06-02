@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-
 export default function ElaspsedTime({date}) {
 
   const [now, setNow] = useState(new Date());
