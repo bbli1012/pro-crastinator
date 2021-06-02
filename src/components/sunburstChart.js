@@ -8,12 +8,7 @@ import * as am4plugins_sunburst from "@amcharts/amcharts4/plugins/sunburst";
 am4core.useTheme(am4themes_animated);
 
 export default function SunburstChart() {
-
     useEffect(()=>{
-        // Themes begin
-        am4core.useTheme(am4themes_animated);
-        // Themes end
-    
         // create chart
         var chart = am4core.create("chartdiv", am4plugins_sunburst.Sunburst);
         chart.padding(0, 0, 0, 0);
@@ -209,9 +204,15 @@ export default function SunburstChart() {
             })
           }
         }
+        
+        return () => {
+            chart.dispose();
+          };
       }, []);
 
     return (
-        <div id='chartdiv' class="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5"></div>
+        <div class="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5">
+            <div id='chartdiv' class="w-full h-5/6"></div>
+        </div>
     );
 };
