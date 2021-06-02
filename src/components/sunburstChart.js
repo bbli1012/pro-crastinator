@@ -211,8 +211,8 @@ export default function SunburstChart() {
       }, []);
 
     return (
-        <div class="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5">
-            <div id='chartdiv' class="w-full h-5/6"></div>
+        <div class="border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5 flex flex-col justify-center">
+            <div id='chartdiv' class="w-5/6 h-5/6 m-auto"></div>
         </div>
     );
 };
