@@ -7,7 +7,7 @@ import SplitsDisplay from './components/SplitsDisplay.js';
 import SunburstChart from './components/SunburstChart.js';
 
 // TODO: remove after database implementation
-import mockSplits from './mock-data.js';
+import { mockSplits, mockLabels } from "./mock-data.js";
 
 const App = () => {
   const [date, setDate] = useState(false);
