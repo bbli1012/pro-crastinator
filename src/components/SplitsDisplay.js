@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 
-const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
+const SplitsDisplay = ({ splits, mockLabels, setSplits }) =>{
+
   const onChange = (e) => {
     let { className: splitIdx, value: newLabel } = e.target;
     // TODO: need to create deep copy of splits? Might be more expensive
@@ -16,11 +17,21 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
   };
 
   return (
-    <div className="splits-column">
+    <div className="flex flex-col-reverse overflow-scroll overflow-x-hidden border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5">
       {splits.map((split, idx) => {
+        let start = new Date(split.start);
+        let stop = new Date(split.stop);
+        let duration = new Date(stop - start)
+
         return (
-          <div className="row" key={idx}>
-            <div>{split.start}</div>
+          <div className="flex flex-row justify-between border rounded my-2 mx-5" key={idx}>
+            <div>
+              {stop.toLocaleTimeString()} <br/>
+              {start.toLocaleTimeString()}
+            </div>
+            <div>
+              {Math.floor(duration/36000000)  + ' hrs ' + duration.getMinutes() + ' mins '}
+            </div>
             {split.label === "not defined" ? (
               <>
                 <input
@@ -39,10 +50,10 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
               <div className={split.category}>{split.label}</div>
             )}
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
 export default SplitsDisplay;

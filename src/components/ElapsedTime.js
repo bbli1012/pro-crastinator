@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-
 export default function ElaspsedTime({date}) {
 
   const [now, setNow] = useState(new Date());
@@ -19,16 +18,14 @@ export default function ElaspsedTime({date}) {
   }
 
   function getTimeDiff() {
-    let split = date[date.length - 1];
-    let timeDiff = new Date(Math.abs(now.getTime() - split.getTime()));
-    // return timeDiff.getTime();
+    let timeDiff = new Date(Math.abs(now.getTime() - date.start));
     return Math.floor(timeDiff/36000000)  + ' Hrs ' + timeDiff.getMinutes() + ' Mins ' + timeDiff.getSeconds() + ' Seconds ago'
   }
 
   return (
-    <div className="time-elapsed-display">
-      <h2>{date.length ? 'Time since last split' : 'Current Time is'}</h2>
-      <h3>{date.length ? getTimeDiff() : now.toLocaleTimeString()}.</h3>
+    <div className="time-elapsed-display border-2 rounded-lg w-1/2 py-auto my-5 mx-5">
+      <h2>{date ? 'Time since last split' : 'Current Time is'}</h2>
+      <h3>{date ? getTimeDiff() : now.toLocaleTimeString()}.</h3>
     </div>
   );
 }
