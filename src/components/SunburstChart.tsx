@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import sunburstDataParser from "../utility/sunburstDataParser.js";
+import sunburstDataParser from "../utility/sunburstDataParser.jsx";
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
