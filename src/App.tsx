@@ -1,17 +1,25 @@
 import "./App.css";
 
-import React, { useState, useEffect } from "react";
-import * as TimeSplitButton from "./components/TimeSplitButton";
-import * as ElapsedTime from "./components/ElapsedTime";
-import * as SplitsDisplay from "./components/SplitsDisplay";
-import * as SunburstChart from "./components/SunburstChart";
+import React, { useState, useEffect, FunctionComponent } from "react";
+import TimeSplitButton from "./components/TimeSplitButton";
+import ElapsedTime from "./components/ElapsedTime";
+import SplitsDisplay from "./components/SplitsDisplay";
+import SunburstChart from "./components/SunburstChart";
 
 // TODO: remove after database implementation
 import { mockSplits, mockLabels } from "./mock-data";
+import { string } from "@amcharts/amcharts4/core";
 
-const App = () => {
-  const [date, setDate] = useState(false);
-  const [splits, setSplits] = useState([]);
+const App:FunctionComponent<any> = () => {
+  const [date, setDate] = useState<any>('');
+  const [splits, setSplits] = useState<any>([]);
+
+  interface IDate {
+    start: number,
+    stop: number | undefined,
+    category: string,
+    label: string
+  };
 
   useEffect(() => {
     // TODO: change to database get request later
@@ -22,12 +30,12 @@ const App = () => {
     let genDate = new Date();
 
     if (date) {
-      let newSplit = { ...date };
+      let newSplit: any = { ...date };
       newSplit.stop = genDate.getTime();
       setSplits([...splits, newSplit]);
     }
 
-    let newDate = {
+    let newDate: IDate = {
       start: genDate.getTime(),
       stop: undefined,
       category: "uncategorized",
@@ -38,7 +46,7 @@ const App = () => {
   }
 
   return (
-    <div class="h-screen w-screen my-auto">
+    <div className="h-screen w-screen my-auto">
       <div className="box-border border-2 rounded mx-auto w-3/4 h-5/6 ">
         {/* TODO: replace with header/ nav component */}
         <header className="header">

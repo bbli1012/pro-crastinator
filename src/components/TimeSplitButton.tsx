@@ -1,17 +1,22 @@
 import * as React from "react";
 
-export default function TimeSplitButton({ date, action }) {
+type AppProps = {
+  date: any,
+  action: Function,
+}
+
+const TimeSplitButton = ({ date, action }: AppProps) => {
   return (
     <div className="split-box border-2 rounded-lg w-1/2 my-5 mx-5 content-center">
-      <div class="m-auto w-1/2">
-        <label class="m-auto">
+      <div className="m-auto w-1/2">
+        <label className="m-auto">
           {" "}
           Current split is {date ? date.start.toString() : "not set"}{" "}
         </label>
       </div>
-      <div class="m-auto w-1/2">
+      <div className="m-auto w-1/2">
         <button
-          class="rounded-full border-2 p-5 bg-red-500 bg-opacity-50"
+          className="rounded-full border-2 p-5 bg-red-500 bg-opacity-50"
           onClick={action}
         >
           Time Split
@@ -20,3 +25,5 @@ export default function TimeSplitButton({ date, action }) {
     </div>
   );
 }
+
+export default TimeSplitButton;

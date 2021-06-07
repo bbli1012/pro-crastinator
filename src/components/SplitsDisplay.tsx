@@ -1,11 +1,11 @@
 import * as React from "react";
 
-const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
-  const onChange = (e) => {
+const SplitsDisplay = ({ splits, mockLabels, setSplits }: any) => {
+  const onChange = (e: any) => {
     let { className: splitIdx, value: newLabel } = e.target;
     // TODO: need to create deep copy of splits? Might be more expensive
     // TOD: there is a slice variation as well
-    let newSplits = splits.map((split, idx) => {
+    let newSplits: any = splits.map((split: any, idx: number) => {
       if (idx === Number(splitIdx)) {
         return { ...split, label: newLabel };
       } else {
@@ -17,10 +17,10 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
 
   return (
     <div className="flex flex-col-reverse overflow-scroll overflow-x-hidden border-2 rounded-lg w-1/2 h-5/6 py-auto my-5 mx-5">
-      {splits.map((split, idx) => {
-        let start = new Date(split.start);
-        let stop = new Date(split.stop);
-        let duration = split.stop - split.start;
+      {splits.map((split: any, idx: number) => {
+        let start: Date = new Date(split.start);
+        let stop: Date = new Date(split.stop);
+        let duration: number | null = split.stop - split.start;
         let hrs, mins;
         if (duration >= 86400000) {
           duration = null;
@@ -53,11 +53,11 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
                   list="labels"
                   placeholder={split.label}
                   onChange={onChange}
-                  className={idx}
+                  className={idx.toString()}
                 />
                 <datalist id="labels">
-                  {mockLabels.map((label, idx) => (
-                    <option value={label} key={idx} />
+                  {mockLabels.map((label: string, idx: number) => (
+                    <option value={label} key={idx.toString()} />
                   ))}
                 </datalist>
               </>

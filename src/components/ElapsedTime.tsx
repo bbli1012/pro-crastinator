@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-export default function ElaspsedTime({ date }) {
+export default function ElaspsedTime({ date }: any) {
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function ElaspsedTime({ date }) {
   }
 
   function getTimeDiff() {
-    let timeDiff = new Date(Math.abs(now.getTime() - date.start));
+    let timeDiff: any = new Date(Math.abs(now.getTime() - date.start));
     return (
       Math.floor(timeDiff / 36000000) +
       " Hrs " +

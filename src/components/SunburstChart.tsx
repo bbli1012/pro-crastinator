@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect } from "react";
-import * as sunburstDataParser from "../utility/sunburstDataParser";
+import sunburstDataParser from "../utility/sunburstDataParser";
 
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
@@ -8,7 +8,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4plugins_sunburst from "@amcharts/amcharts4/plugins/sunburst";
 am4core.useTheme(am4themes_animated);
 
-export default function SunburstChart({ splits }) {
+export default function SunburstChart({ splits } : any) {
   useEffect(() => {
     // create chart
     var chart = am4core.create("chartdiv", am4plugins_sunburst.Sunburst);
