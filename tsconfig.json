@@ -11,6 +11,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    //for amcharts
+    "strictNullChecks": false,
+    "strictFunctionTypes": false,
+    //for amcharts end
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",

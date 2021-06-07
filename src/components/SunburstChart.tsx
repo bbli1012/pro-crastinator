@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import * as React from "react";
 import { useEffect } from "react";
 import sunburstDataParser from "../utility/sunburstDataParser";
@@ -6,78 +8,22 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as am4plugins_sunburst from "@amcharts/amcharts4/plugins/sunburst";
+import { any } from "@amcharts/amcharts4/.internal/core/utils/Array";
 am4core.useTheme(am4themes_animated);
 
 export default function SunburstChart({ splits } : any) {
   useEffect(() => {
+    //please change this BEN
+    interface ISunburstSeriesProperties {
+      pixelRadius: number
+    };
     // create chart
     var chart = am4core.create("chartdiv", am4plugins_sunburst.Sunburst);
     chart.padding(0, 0, 0, 0);
     chart.radius = am4core.percent(98);
 
     chart.data = sunburstDataParser(splits);
-    // chart.data =[
-    //     {
-    //         "name": "social",
-    //         "children": [
-    //             {
-    //                 "name": "bar",
-    //                 "value": 481578000
-    //             },
-    //             {
-    //                 "name": "lunch",
-    //                 "value": 839409000
-    //             },
-    //             {
-    //                 "name": "dinner",
-    //                 "value": 440216000
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         "name": "uncategorized",
-    //         "children": [
-    //             {
-    //                 "name": "not defined",
-    //                 "value": 1717238000
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         "name": "entertainment",
-    //         "children": [
-    //             {
-    //                 "name": "gaming",
-    //                 "value": 627863000
-    //             },
-    //             {
-    //                 "name": "movie",
-    //                 "value": 550467000
-    //             },
-    //             {
-    //                 "name": "tv",
-    //                 "value": 438854000
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         "name": "productivity",
-    //         "children": [
-    //             {
-    //                 "name": "biking",
-    //                 "value": 332088000
-    //             },
-    //             {
-    //                 "name": "reading",
-    //                 "value": 298379000
-    //             },
-    //             {
-    //                 "name": "basketball",
-    //                 "value": 216024000
-    //             }
-    //         ]
-    //     }
-    // ];
+
 
     chart.colors.step = 2;
     chart.fontSize = 12;
@@ -104,18 +50,18 @@ export default function SunburstChart({ splits } : any) {
     selectedState.properties.opacity = 0.7;
     level0SeriesTemplate.defaultState.properties.radius = am4core.percent(100);
 
-    var currentlySelected;
+    var currentlySelected: any;
 
-    level0SeriesTemplate.slices.template.events.on("over", function (event) {
+    level0SeriesTemplate.slices.template.events.on("over", function (event: any) {
       if (event.target.dataItem.sunburstDataItem.children) {
         event.target.cursorOverStyle = am4core.MouseCursorStyle.pointer;
       }
     });
 
-    level0SeriesTemplate.slices.template.events.on("hit", function (event) {
+    level0SeriesTemplate.slices.template.events.on("hit", function (event: any) {
       zoomOutButton.show();
-      var hitSlice = event.target;
-      console.log(hitSlice.dataItem.sunburstDataItem.series.pixelRadius);
+      var hitSlice: any = event.target;
+      // console.log(hitSlice.dataItem.sunburstDataItem.series.pixelRadius);
 
       if (hitSlice.dataItem.sunburstDataItem.children) {
         var series = event.target.dataItem.component;
@@ -131,7 +77,7 @@ export default function SunburstChart({ splits } : any) {
           series.setState("selected");
           hitSlice.dataItem.sunburstDataItem.series.show();
           hitSlice.dataItem.sunburstDataItem.series.setState("selected");
-          series.slices.each(function (slice) {
+          series.slices.each(function (slice: any) {
             if (slice != event.target) {
               slice.dataItem.hide();
             }

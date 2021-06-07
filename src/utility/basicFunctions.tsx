@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export function parseDate(ms) {
   return new Date(ms);
 }

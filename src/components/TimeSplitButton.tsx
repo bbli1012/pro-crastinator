@@ -2,7 +2,7 @@ import * as React from "react";
 
 type AppProps = {
   date: any,
-  action: Function,
+  action: any,
 }
 
 const TimeSplitButton = ({ date, action }: AppProps) => {

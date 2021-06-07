@@ -1,4 +1,4 @@
-export default function sunburstDataParser(splits) {
+export default function sunburstDataParser(splits: any) {
   /**
    * {name: category
    * children: [
@@ -8,8 +8,8 @@ export default function sunburstDataParser(splits) {
    */
 
   let data = [];
-  let labels = {};
-  let categories = {};
+  let labels: any = {};
+  let categories: any = {};
 
   let dummy = [
     {
@@ -82,7 +82,7 @@ export default function sunburstDataParser(splits) {
 
   //loop through data
   for (let i = 0; i < splits.length; i++) {
-    let labelName = splits[i].label;
+    let labelName : string = splits[i].label;
     if (labels[labelName] === undefined) {
       labels[labelName] = splits[i].stop - splits[i].start;
       if (categories[splits[i].category] === undefined) {
@@ -95,7 +95,7 @@ export default function sunburstDataParser(splits) {
   }
 
   for (let key in categories) {
-    let obj = {
+    let obj: any = {
       name: key,
       children: [],
     };

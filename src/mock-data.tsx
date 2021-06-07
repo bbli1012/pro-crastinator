@@ -1,8 +1,8 @@
-const createMockSplits = (numOfSplits) => {
+const createMockSplits = (numOfSplits: number) => {
   let splits = [];
 
   for (let i = 0; i < numOfSplits; i++) {
-    let split = {};
+    let split: any = {};
     if (i === 0) {
       split.start = Date.now();
     } else {
@@ -32,7 +32,7 @@ const createMockSplits = (numOfSplits) => {
   return splits;
 };
 
-const getRandomNumberInt = (min, max) => {
+const getRandomNumberInt = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
@@ -43,7 +43,7 @@ const timeMS = {
   hr: 36000000,
 };
 const categories = ["social", "productivity", "entertainment", "uncategorized"];
-const categoryLabels = {
+const categoryLabels : any = {
   social: ["bar", "dinner", "lunch"],
   productivity: ["reading", "hiking", "biking", "basketball"],
   entertainment: ["movie", "tv", "gaming"],
