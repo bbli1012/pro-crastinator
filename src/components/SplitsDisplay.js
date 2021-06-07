@@ -20,7 +20,15 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
       {splits.map((split, idx) => {
         let start = new Date(split.start);
         let stop = new Date(split.stop);
-        let duration = new Date(stop - start);
+        let duration = split.stop - split.start;
+        let hrs, mins;
+        if (duration >= 86400000) {
+          duration = null;
+        } else {
+          hrs = Math.floor(duration / 3600000);
+          mins = duration % 3600000;
+          mins = Math.floor(mins / 60000);
+        }
 
         return (
           <div
@@ -32,10 +40,12 @@ const SplitsDisplay = ({ splits, mockLabels, setSplits }) => {
               {start.toLocaleTimeString()}
             </div>
             <div>
-              {Math.floor(duration / 36000000) +
-                " hrs " +
-                duration.getMinutes() +
-                " mins "}
+              {!duration
+                ? "too long"
+                : hrs +
+                  " hrs " +
+                  mins +
+                  " mins "}
             </div>
             {split.label === "not defined" ? (
               <>
