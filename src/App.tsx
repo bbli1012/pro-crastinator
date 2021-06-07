@@ -1,13 +1,13 @@
 import "./App.css";
 
 import React, { useState, useEffect } from "react";
-import TimeSplitButton from "./components/TimeSplitButton.jsx";
-import ElapsedTime from "./components/ElapsedTime.jsx";
-import SplitsDisplay from "./components/SplitsDisplay.jsx";
-import SunburstChart from "./components/SunburstChart.jsx";
+import * as TimeSplitButton from "./components/TimeSplitButton";
+import * as ElapsedTime from "./components/ElapsedTime";
+import * as SplitsDisplay from "./components/SplitsDisplay";
+import * as SunburstChart from "./components/SunburstChart";
 
 // TODO: remove after database implementation
-import { mockSplits, mockLabels } from "./mock-data.js";
+import { mockSplits, mockLabels } from "./mock-data";
 
 const App = () => {
   const [date, setDate] = useState(false);
