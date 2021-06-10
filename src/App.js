@@ -1,6 +1,6 @@
 import "./App.css";
-
-import React, { useState, useEffect } from "react";
+import {firebaseAuth} from './provider/AuthProvider'
+import React, { useState, useEffect, useContext } from "react";
 import {
   BrowserRouter as Router,
   Switch, Route, Link, Redirect
@@ -9,6 +9,7 @@ import TimeSplitButton from "./components/TimeSplitButton.js";
 import ElapsedTime from "./components/ElapsedTime.js";
 import SplitsDisplay from "./components/SplitsDisplay.js";
 import SunburstChart from "./components/SunburstChart.js";
+import Signup from "./components/Signup.js";
 
 // TODO: remove after database implementation
 import { mockSplits, mockLabels } from "./mock-data.js";
@@ -16,6 +17,8 @@ import { mockSplits, mockLabels } from "./mock-data.js";
 const App = () => {
   const [date, setDate] = useState(false);
   const [splits, setSplits] = useState([]);
+  const {handleSignup} = useContext(firebaseAuth);
+  console.log(handleSignup);
   const [login, setLogin] = useState(false);
 
   useEffect(() => {
